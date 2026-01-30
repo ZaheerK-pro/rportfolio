@@ -136,18 +136,6 @@ export default function Home({ theme = 'light' }) {
           </div>
         </div>
       </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center px-4">
-        <a
-          href="#service"
-          className={`hero-fade-up hero-delay-7 flex flex-col items-center gap-2 py-2 ${mutedCls} hover:text-main transition-colors rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2`}
-          aria-label="Scroll to services"
-        >
-          <span className="text-[1rem] sm:text-[1.1rem] font-medium uppercase tracking-widest">Scroll</span>
-          <i className="fas fa-chevron-down text-lg sm:text-xl animate-bounce-slow" aria-hidden />
-        </a>
-      </div>
     </section>
   )
 }
