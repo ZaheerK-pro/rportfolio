@@ -8,7 +8,7 @@ A simple Personal porfolio web application
     git clone https://github.com/ZaheerK-pro/My-Portfolio.git
 
 ## Hosted Version
-You can access the live version of the app [here](http://zaheerkhan).
+You can access the live version of the app [here](https://zaheerk.vercel.app/).
 
 ## Author
 Zaheer Khan <br>
