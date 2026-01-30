@@ -1,0 +1,67 @@
+const projects = [
+  { img: '/assets/jobscan.jpg', title: 'jobScan Web App', link: 'https://github.com/ZaheerK-pro/jobscan', demo: 'https://jobscan.vercel.app/' },
+  { img: '/assets/petrolium.jpg', title: 'subPetro Web App', link: 'https://github.com/ZaheerK-pro/petrolium', demo: 'https://subpetrolium.vercel.app/' },
+  { img: '/assets/portfolio.jpg', title: 'Portfolio Web App', link: 'https://github.com/ZaheerK-pro/My-Portfolio', demo: 'https://zaheerkhan.netlify.app/' },
+  { img: '/assets/gro-shop.jpg', title: 'Grocery Shop', link: 'https://github.com/ZaheerK-pro/GroceryShop', demo: 'https://igrobasket.vercel.app/' },
+  { img: '/assets/vcall.jpg', title: 'vCall Web App', link: 'https://github.com/ZaheerK-pro/VideoCallingApp', demo: 'https://github.com/ZaheerK-pro' },
+  { img: '/assets/cloth-shop.jpg', title: 'Clothing Shop', link: 'https://github.com/ZaheerK-pro/ClothingShop', demo: 'https://auracloths.vercel.app/' },
+]
+
+export default function Portfolio({ theme = 'light' }) {
+  const isLight = theme === 'light'
+  const cardBg = isLight ? 'bg-white border-slate-100 shadow-lg' : 'bg-slate-800 border-slate-700 shadow-xl shadow-slate-900/50'
+  const headingCls = isLight ? 'text-text-primary' : 'text-white'
+  const textCls = isLight ? 'text-text-muted' : 'text-slate-400'
+  const barBg = isLight ? 'bg-slate-100 text-text-muted' : 'bg-slate-700 text-slate-300'
+  const borderBar = isLight ? 'border-slate-100' : 'border-slate-700'
+
+  const overlayGradient = isLight ? 'from-slate-900/95 via-slate-900/50 to-transparent' : 'from-slate-950/95 via-slate-900/50 to-transparent'
+
+  return (
+    <section id="portfolio" className="min-h-screen transition-colors duration-300">
+      <div className="mb-8 sm:mb-12">
+        <h1 className={`text-3xl sm:text-4xl md:text-[3.5rem] pb-3 font-bold uppercase tracking-tight ${headingCls}`}>
+          <span className="text-main">my</span> projects
+        </h1>
+        <p className={`${textCls} text-[1.4rem] sm:text-[1.6rem] max-w-2xl leading-relaxed`}>
+          A selection of web applications and projects I've built — from e-commerce and productivity tools to this portfolio.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+        {projects.map((p) => (
+          <article
+            key={p.title}
+            className={`group relative overflow-hidden rounded-2xl border hover:shadow-2xl hover:border-main/20 transition-all duration-300 ${cardBg}`}
+          >
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className={`absolute inset-0 bg-gradient-to-t ${overlayGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6`}>
+                <h3 className="text-white text-xl sm:text-2xl font-bold uppercase tracking-wide mb-3 sm:mb-4 drop-shadow-sm">{p.title}</h3>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-main hover:bg-main-dark text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent" aria-label={`View ${p.title} source code`}>
+                    <i className="fas fa-code" aria-hidden /><span>Code</span>
+                  </a>
+                  <a href={p.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white/20 hover:bg-white/30 text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg border border-white/40 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent" aria-label={`View ${p.title} live demo`}>
+                    <i className="fas fa-external-link-alt" aria-hidden /><span>Live</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className={`p-4 sm:p-5 border-t group-hover:border-main/20 transition-colors ${borderBar}`}>
+              <h3 className={`${headingCls} text-[1.6rem] sm:text-[1.8rem] font-semibold uppercase tracking-wide`}>{p.title}</h3>
+              <div className="flex gap-3 mt-3">
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className={`flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg hover:bg-main hover:text-white transition-all duration-200 ${barBg}`} aria-label="View source code">
+                  <i className="fab fa-github text-base sm:text-lg" aria-hidden />
+                </a>
+                <a href={p.demo} target="_blank" rel="noopener noreferrer" className={`flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg hover:bg-main hover:text-white transition-all duration-200 ${barBg}`} aria-label="View live demo">
+                  <i className="fas fa-external-link-alt" aria-hidden />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
