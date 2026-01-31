@@ -1,0 +1,25 @@
+# Render Blueprint: Portfolio backend + PostgreSQL
+# Deploy from: https://dashboard.render.com/blueprints
+
+databases:
+  - name: portfolio-db
+    plan: free
+    databaseName: portfolio
+
+services:
+  - type: web
+    name: portfolio-api
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: portfolio-db
+          property: connectionString
