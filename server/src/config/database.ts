@@ -5,7 +5,8 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 const baseOptions = {
   type: 'postgres' as const,
-  synchronize: !isProduction,
+  // synchronize: true creates/updates tables from entities (e.g. messages table)
+  synchronize: true,
   logging: process.env.NODE_ENV === 'development',
   entities: [Message],
   migrations: [],
