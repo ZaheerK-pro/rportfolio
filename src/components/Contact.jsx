@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useSendMessage } from '../hooks/useSendMessage'
 
 const MAP_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15040.109469846204!2d77.0315944426454!3d19.540438580169287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd048ee4b08cf13%3A0x5fe349212cb14a3e!2sAundha%20Nagnath%2C%20Maharashtra%20431705!5e0!3m2!1sen!2sin!4v1692189623520!5m2!1sen!2sin'
 
 export default function Contact({ theme = 'light', onShowToast }) {
   const [formData, setFormData] = useState({ name: '', email: '', number: '', message: '' })
+  const { send, loading } = useSendMessage()
   const isLight = theme === 'light'
 
   const cardBg = isLight ? 'bg-white border-slate-100 shadow-lg' : 'bg-slate-800 border-slate-700 shadow-xl shadow-slate-900/50'
@@ -17,11 +19,15 @@ export default function Contact({ theme = 'light', onShowToast }) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // For now: show success and clear form (no backend call)
-    onShowToast('Successfully sent!', 'success')
-    setFormData({ name: '', email: '', number: '', message: '' })
+    try {
+      await send(formData)
+      onShowToast('Successfully sent!', 'success')
+      setFormData({ name: '', email: '', number: '', message: '' })
+    } catch (err) {
+      onShowToast(err?.message ?? 'Failed to send message. Try again.', 'error')
+    }
   }
 
   return (
@@ -70,8 +76,8 @@ export default function Contact({ theme = 'light', onShowToast }) {
             <input type="tel" placeholder="Your number" name="number" value={formData.number} onChange={handleChange} required className={`w-full border-2 rounded-lg px-4 py-3 text-[1.4rem] sm:text-[1.6rem] outline-none focus:border-main focus:ring-2 focus:ring-main/20 transition-all ${inputCls}`} />
             <textarea name="message" placeholder="Your message" value={formData.message} onChange={handleChange} required rows={5} className={`w-full border-2 rounded-lg px-4 py-3 text-[1.4rem] sm:text-[1.6rem] min-h-[12rem] resize-y outline-none focus:border-main focus:ring-2 focus:ring-main/20 transition-all ${inputCls}`} />
           </div>
-          <button type="submit" className="mt-6 py-3 px-8 sm:px-10 bg-main text-white text-[1.5rem] sm:text-[1.6rem] font-medium rounded-xl hover:bg-main-dark transition-all duration-200 border-0 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2">
-            Send message
+          <button type="submit" disabled={loading} className="mt-6 py-3 px-8 sm:px-10 bg-main text-white text-[1.5rem] sm:text-[1.6rem] font-medium rounded-xl hover:bg-main-dark transition-all duration-200 border-0 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed">
+            {loading ? 'Sending...' : 'Send message'}
           </button>
         </form>
         <div className={`flex-1 min-w-0 min-h-[280px] sm:min-h-[340px] overflow-hidden rounded-2xl shadow-lg border ${isLight ? 'border-slate-100' : 'border-slate-700'}`}>
