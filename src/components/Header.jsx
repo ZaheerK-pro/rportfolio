@@ -3,6 +3,8 @@ export default function Header({ menuOpen, onMenuToggle, theme, onToggleTheme })
     { href: '#home', label: 'home' },
     { href: '#service', label: 'service' },
     { href: '#experience', label: 'experience' },
+    { href: '#education', label: 'education' },
+    { href: '#certifications', label: 'certifications' },
     { href: '#portfolio', label: 'projects' },
     { href: '#contact', label: 'contact' },
   ]

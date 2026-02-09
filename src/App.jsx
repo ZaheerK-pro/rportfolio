@@ -4,6 +4,8 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Service from './components/Service'
 import Experience from './components/Experience'
+import Education from './components/Education'
+import Certifications from './components/Certifications'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -62,6 +64,8 @@ export default function App() {
         <Home theme={theme} />
         <Service theme={theme} />
         <Experience theme={theme} />
+        <Education theme={theme} />
+        <Certifications theme={theme} />
         <Portfolio theme={theme} />
         <Contact theme={theme} onShowToast={showToast} />
         <Footer theme={theme} />
