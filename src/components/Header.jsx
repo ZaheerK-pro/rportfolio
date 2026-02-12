@@ -1,11 +1,11 @@
 export default function Header({ menuOpen, onMenuToggle, theme, onToggleTheme }) {
   const navItems = [
     { href: '#home', label: 'home' },
-    { href: '#service', label: 'service' },
     { href: '#experience', label: 'experience' },
+    { href: '#portfolio', label: 'projects' },
     { href: '#education', label: 'education' },
     { href: '#certifications', label: 'certifications' },
-    { href: '#portfolio', label: 'projects' },
+    { href: '#service', label: 'service' },
     { href: '#contact', label: 'contact' },
   ]
 
