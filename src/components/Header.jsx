@@ -30,12 +30,12 @@ export default function Header({ menuOpen, onMenuToggle, theme, onToggleTheme })
       </button>
 
       <header
-        className={`fixed top-0 left-0 bottom-0 bg-[#222] flex flex-col items-center justify-between z-[1000] py-12 sm:py-[8rem] px-6 sm:px-8 w-[30rem] text-center border-r border-[#333] max-[991px]:w-full max-[991px]:max-w-[320px] max-[991px]:border-r-0 max-[991px]:transition-[transform] max-[991px]:duration-300 max-[991px]:shadow-2xl ${
+        className={`fixed top-0 left-0 bottom-0 bg-sidebar flex flex-col items-center justify-between z-[1000] py-12 sm:py-[8rem] px-6 sm:px-8 w-[30rem] text-center border-r border-main-dark/50 max-[991px]:w-full max-[991px]:max-w-[320px] max-[991px]:border-r-0 max-[991px]:transition-[transform] max-[991px]:duration-300 max-[991px]:shadow-2xl ${
           menuOpen ? 'max-[991px]:translate-x-0' : 'max-[991px]:-translate-x-full'
         }`}
         role="banner"
       >
-        <a href="#" className="uppercase text-white text-2xl sm:text-3xl font-bold tracking-wide hover:opacity-90 focus:opacity-90 transition-opacity rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-[#222]">
+        <a href="#" className="uppercase text-white text-2xl sm:text-3xl font-bold tracking-wide hover:opacity-90 focus:opacity-90 transition-opacity rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar">
           <span className="text-main">Zaheer</span> Khan
         </a>
 
@@ -44,7 +44,7 @@ export default function Header({ menuOpen, onMenuToggle, theme, onToggleTheme })
             <a
               key={item.href}
               href={item.href}
-              className="block text-xl sm:text-2xl text-white py-5 sm:py-6 px-4 rounded-lg hover:tracking-widest hover:text-main transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-[#222]"
+              className="block text-xl sm:text-2xl text-white/95 py-5 sm:py-6 px-4 rounded-lg hover:tracking-widest hover:text-main transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar"
               onClick={() => onMenuToggle(false)}
             >
               {item.label}
@@ -56,7 +56,7 @@ export default function Header({ menuOpen, onMenuToggle, theme, onToggleTheme })
           <button
             type="button"
             onClick={onToggleTheme}
-            className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#333] text-white hover:bg-main transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-[#222]"
+            className="flex h-12 w-12 items-center justify-center rounded-xl bg-main text-[var(--color-button-text)] hover:bg-main-dark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             <i className={theme === 'dark' ? 'fas fa-sun text-xl' : 'fas fa-moon text-xl'} aria-hidden />
@@ -68,7 +68,7 @@ export default function Header({ menuOpen, onMenuToggle, theme, onToggleTheme })
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-2xl text-white/90 hover:text-main transition-colors duration-200 rounded-lg p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-[#222] ${link.className}`}
+                className={`text-2xl text-white/90 hover:text-main transition-colors duration-200 rounded-lg p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar ${link.className}`}
                 aria-label={link.className.includes('linkedin') ? 'LinkedIn' : link.className.includes('github') ? 'GitHub' : link.className.includes('instagram') ? 'Instagram' : 'Twitter'}
               />
             ))}

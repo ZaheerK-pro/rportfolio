@@ -60,15 +60,15 @@ export default function App() {
         <Cursor />
       </div>
       <Header menuOpen={menuOpen} onMenuToggle={onMenuToggle} theme={theme} onToggleTheme={toggleTheme} />
-      <main className={theme === 'light' ? 'bg-body min-h-screen transition-colors duration-300' : 'bg-slate-900 min-h-screen transition-colors duration-300'}>
-        <Home theme={theme} />
-        <Experience theme={theme} />
-        <Portfolio theme={theme} />
-        <Education theme={theme} />
-        <Certifications theme={theme} />
-        <Service theme={theme} />
-        <Contact theme={theme} onShowToast={showToast} />
-        <Footer theme={theme} />
+      <main className="bg-body min-h-screen transition-colors duration-300">
+        <Home />
+        <Experience />
+        <Portfolio />
+        <Education />
+        <Certifications />
+        <Service />
+        <Contact onShowToast={showToast} />
+        <Footer />
       </main>
       <Toast
         message={toast.message}

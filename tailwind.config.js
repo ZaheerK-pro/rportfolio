@@ -8,12 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: '#0d9488',
-        'main-dark': '#0f766e',
-        body: '#f1f5f9',
-        sidebar: '#0f172a',
-        'text-primary': '#0f172a',
-        'text-muted': '#64748b',
+        /* Theme via CSS variables (light = Imperial Topaz, dark = Platinum MIST) */
+        body: 'var(--color-body)',
+        card: 'var(--color-card)',
+        main: 'var(--color-main)',
+        'main-dark': 'var(--color-main-dark)',
+        sidebar: 'var(--color-sidebar)',
+        'text-primary': 'var(--color-text-primary)',
+        'text-muted': 'var(--color-text-muted)',
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],

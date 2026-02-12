@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light theme: Imperial Topaz */
+:root {
+  --color-body: #FFF8E7;
+  --color-card: #FFFBF5;   /* soft cream-white, reads clean not yellow */
+  --color-main: #E6A520;
+  --color-main-dark: #7A4A00;
+  --color-text-primary: #7A4A00;
+  --color-text-muted: #9a6b20;
+  --color-sidebar: #5a3800;
+  --color-button-text: #ffffff;
+  --color-focus: #E6A520;
+}
+
+/* Dark theme: Platinum MIST surfaces, same button as light (Imperial Topaz) */
+[data-theme="dark"] {
+  --color-body: #2B2E33;
+  --color-card: #363A40;
+  --color-main: #E6A520;       /* same as light – gold button & accent */
+  --color-main-dark: #7A4A00;  /* same as light – button hover */
+  --color-text-primary: #F5F6F7;
+  --color-text-muted: #C1C4C8;
+  --color-sidebar: #1e2023;
+  --color-button-text: #ffffff; /* same as light */
+  --color-focus: #E6A520;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -21,15 +47,44 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   width: 100%;
+  background-color: var(--color-body);
 }
 
-/* Theme: light = everything light, dark = everything dark */
-[data-theme="light"] body {
-  background-color: #f1f5f9;
+/* Theme-aware: main and semantic colors follow CSS variables */
+main {
+  background-color: var(--color-body) !important;
 }
 
-[data-theme="dark"] body {
-  background-color: #0f172a;
+button.bg-main,
+a.bg-main,
+.bg-main {
+  background-color: var(--color-main) !important;
+  color: var(--color-button-text) !important;
+}
+button.bg-main:hover,
+a.bg-main:hover,
+.bg-main.hover\:bg-main-dark:hover,
+.hover\:bg-main-dark:hover {
+  background-color: var(--color-main-dark) !important;
+  color: var(--color-button-text) !important;
+}
+.text-main {
+  color: var(--color-main) !important;
+}
+.text-text-primary {
+  color: var(--color-text-primary) !important;
+}
+.text-text-muted {
+  color: var(--color-text-muted) !important;
+}
+.bg-card {
+  background-color: var(--color-card) !important;
+}
+.bg-body {
+  background-color: var(--color-body) !important;
+}
+.bg-sidebar {
+  background-color: var(--color-sidebar) !important;
 }
 
 * {
@@ -42,7 +97,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #0d9488;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -69,14 +124,14 @@ section.section-compact {
   }
 }
 
-/* Cursor - only show on desktop */
+/* Cursor - only show on desktop, theme-aware */
 .cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
   height: 1rem;
   width: 1rem;
-  background: #0d9488;
+  background: var(--color-main);
   pointer-events: none;
   transform: translate(-50%, -50%);
   border-radius: 50%;
@@ -94,7 +149,7 @@ section.section-compact {
   left: 0;
   height: 4rem;
   width: 4rem;
-  border: 0.1rem solid #0d9488;
+  border: 0.1rem solid var(--color-main);
   pointer-events: none;
   transform: translate(-50%, -50%);
   border-radius: 50%;
