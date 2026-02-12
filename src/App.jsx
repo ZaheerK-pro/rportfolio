@@ -20,7 +20,6 @@ export default function App() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem(THEME_KEY)
       if (saved === 'dark' || saved === 'light') return saved
-      if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark'
     }
     return 'light'
   })
