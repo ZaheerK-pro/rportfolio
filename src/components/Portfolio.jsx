@@ -1,9 +1,9 @@
 const projects = [
+  { img: '/assets/smurl.png', title: 'Smurl Web App', link: 'https://github.com/imzaheerk/smurl', demo: 'https://smurl-url.vercel.app/' },
   { img: '/assets/jobscan.jpg', title: 'jobScan Web App', link: 'https://github.com/ZaheerK-pro/jobscan', demo: 'https://jobscan.vercel.app/' },
   { img: '/assets/petrolium.jpg', title: 'subPetro', link: 'https://github.com/ZaheerK-pro/petrolium', demo: 'https://sbpetrolium.vercel.app/' },
   { img: '/assets/portfolio.jpg', title: 'Portfolio', link: 'https://github.com/ZaheerK-pro/rportfolio', demo: 'https://zaheerk.vercel.app/' },
   { img: '/assets/gro-shop.jpg', title: 'Grocery Shop', link: 'https://github.com/ZaheerK-pro/GroceryShop', demo: 'https://igrobasket.vercel.app/' },
-  { img: '/assets/vcall.jpg', title: 'vCall Web App', link: 'https://github.com/ZaheerK-pro/VideoCallingApp', demo: 'https://github.com/ZaheerK-pro' },
   { img: '/assets/cloth-shop.jpg', title: 'Clothing Shop', link: 'https://github.com/ZaheerK-pro/ClothingShop', demo: 'https://auracloths.vercel.app/' },
 ]
 
