@@ -1,9 +1,9 @@
 const company = {
   name: 'Sirensys',
-  total: 'Since June 2024',
+  total: 'Since Jan 2024',
   roles: [
-    { title: 'Software Engineer', period: 'Jan 2025 – Present', current: true },
-    { title: 'Full Stack Intern', period: 'June 2024 – Dec 2024', current: false },
+    { title: 'Software Engineer', period: 'July 2024 – Present', current: true },
+    { title: 'Full Stack Intern', period: 'Jan 2024 – June 2024', current: false },
   ],
 }
 const tech = ['React', 'Vite', 'Tailwind', 'PrimeReact', 'Node.js', 'TypeScript', 'Fastify', 'TypeORM', 'JWT', 'REST APIs', 'PostgreSQL', 'React Native']
@@ -74,7 +74,7 @@ export default function Experience() {
             <div className="flex flex-col items-center text-center flex-1 min-w-0">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-main text-white text-sm font-bold shrink-0">1</span>
               <span className="mt-2 text-text-primary text-[1.15rem] font-bold leading-tight">Intern</span>
-              <span className="text-text-muted text-[1rem] mt-0.5">Jun ’24 – Dec ’24</span>
+              <span className="text-text-muted text-[1rem] mt-0.5">Jan ’24 – Jun ’24</span>
             </div>
             <div className="flex-1 min-w-[2rem] flex items-center pt-5 shrink-0">
               <div className="w-full h-0.5 bg-main/40 rounded-full" aria-hidden />
@@ -82,7 +82,7 @@ export default function Experience() {
             <div className="flex flex-col items-center text-center flex-1 min-w-0">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-main text-white text-sm font-bold shrink-0 ring-4 ring-main/30">2</span>
               <span className="mt-2 text-text-primary text-[1.15rem] font-bold leading-tight">Engineer</span>
-              <span className="text-text-muted text-[1rem] mt-0.5">Jan ’25 – Now</span>
+              <span className="text-text-muted text-[1rem] mt-0.5">Jul ’24 – Now</span>
             </div>
           </div>
           <p className="mt-6 pt-5 border-t border-main-dark/20 text-text-muted text-[1.15rem] leading-snug italic">
