@@ -27,15 +27,17 @@ export default function Portfolio() {
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-main-dark/95 via-main-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6">
-                <h3 className="text-white text-xl sm:text-2xl font-bold uppercase tracking-wide mb-3 sm:mb-4 drop-shadow-sm">{p.title}</h3>
-                <div className="flex flex-wrap gap-2 sm:gap-3">
-                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-main hover:bg-main-dark text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent" aria-label={`View ${p.title} source code`}>
-                    <i className="fas fa-code" aria-hidden /><span>Code</span>
-                  </a>
-                  <a href={p.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white/20 hover:bg-white/30 text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg border border-white/40 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent" aria-label={`View ${p.title} live demo`}>
-                    <i className="fas fa-external-link-alt" aria-hidden /><span>Live</span>
-                  </a>
+              <div className="absolute inset-0 bg-gradient-to-t from-main-dark/95 via-main-dark/55 to-main-dark/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6">
+                <div className="w-full rounded-xl bg-black/65 backdrop-blur-sm p-3 sm:p-4 shadow-lg ring-1 ring-white/15">
+                  <h3 className="text-white text-xl sm:text-2xl font-bold uppercase tracking-wide mb-3 sm:mb-4 drop-shadow-sm">{p.title}</h3>
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-main hover:bg-main-dark text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50" aria-label={`View ${p.title} source code`}>
+                      <i className="fas fa-code" aria-hidden /><span>Code</span>
+                    </a>
+                    <a href={p.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white text-main-dark hover:bg-white/95 text-[1.3rem] sm:text-[1.4rem] font-semibold rounded-lg border-2 border-white shadow-md transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-black/50" aria-label={`View ${p.title} live demo`}>
+                      <i className="fas fa-external-link-alt" aria-hidden /><span>Live</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
