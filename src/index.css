@@ -2,30 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light theme: Imperial Topaz */
+/* Light theme: Mint Teal */
 :root {
-  --color-body: #FFF8E7;
-  --color-card: #FFFBF5;   /* soft cream-white, reads clean not yellow */
-  --color-main: #E6A520;
-  --color-main-dark: #7A4A00;
-  --color-text-primary: #7A4A00;
-  --color-text-muted: #9a6b20;
-  --color-sidebar: #5a3800;
+  --color-body: #eefbf8;
+  --color-card: #f6fffd;
+  --color-main: #a8c686;
+  --color-main-dark: #5b7a3c;
+  --color-text-primary: #2c4220;
+  --color-text-muted: #4d6640;
+  --color-sidebar: #2d4321;
   --color-button-text: #ffffff;
-  --color-focus: #E6A520;
+  --color-focus: #5b7a3c;
+  --color-card-border: rgba(91, 122, 60, 0.24);
+  --color-soft-glow: rgba(168, 198, 134, 0.34);
+  --color-shadow: rgba(35, 48, 22, 0.14);
+  --gradient-main: linear-gradient(135deg, #a8c686 0%, #7f9f5e 52%, #5b7a3c 100%);
 }
 
-/* Dark theme: true black surfaces with silver text */
+/* Dark theme: deep teal surfaces */
 [data-theme="dark"] {
-  --color-body: #000000;
-  --color-card: #0a0a0a;
-  --color-main: #E6A520;       /* same as light – gold button & accent */
-  --color-main-dark: #7A4A00;  /* same as light – button hover */
-  --color-text-primary: #C0C0C0;
-  --color-text-muted: #A8A8A8;
-  --color-sidebar: #050505;
-  --color-button-text: #ffffff; /* same as light */
-  --color-focus: #E6A520;
+  --color-body: #051311;
+  --color-card: #0a1f1c;
+  --color-main: #b3f5ec;
+  --color-main-dark: #4d857d;
+  --color-text-primary: #d8f8f2;
+  --color-text-muted: #9fd3cb;
+  --color-sidebar: #04100f;
+  --color-button-text: #0f2a26;
+  --color-focus: #b3f5ec;
+  --color-card-border: rgba(179, 245, 236, 0.2);
+  --color-soft-glow: rgba(179, 245, 236, 0.12);
+  --color-shadow: rgba(0, 0, 0, 0.45);
+  --gradient-main: linear-gradient(135deg, #b3f5ec 0%, #66a89f 50%, #3e6f68 100%);
 }
 
 html {
@@ -48,6 +56,9 @@ body {
   min-height: 100vh;
   width: 100%;
   background-color: var(--color-body);
+  background-image:
+    radial-gradient(circle at 12% 16%, var(--color-soft-glow), transparent 36%),
+    radial-gradient(circle at 88% 14%, rgba(77, 133, 125, 0.2), transparent 34%);
 }
 
 /* Theme-aware: main and semantic colors follow CSS variables */
@@ -58,18 +69,21 @@ main {
 button.bg-main,
 a.bg-main,
 .bg-main {
-  background-color: var(--color-main) !important;
+  background: var(--gradient-main) !important;
   color: var(--color-button-text) !important;
+  box-shadow: 0 10px 30px -14px var(--color-shadow);
 }
 button.bg-main:hover,
 a.bg-main:hover,
 .bg-main.hover\:bg-main-dark:hover,
 .hover\:bg-main-dark:hover {
-  background-color: var(--color-main-dark) !important;
+  background: linear-gradient(135deg, #9cefe4 0%, #4d857d 100%) !important;
   color: var(--color-button-text) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px -16px var(--color-shadow);
 }
 .text-main {
-  color: var(--color-main) !important;
+  color: var(--color-main-dark) !important;
 }
 .text-text-primary {
   color: var(--color-text-primary) !important;
@@ -79,6 +93,9 @@ a.bg-main:hover,
 }
 .bg-card {
   background-color: var(--color-card) !important;
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 16px 38px -26px var(--color-shadow);
+  backdrop-filter: blur(8px);
 }
 .bg-body {
   background-color: var(--color-body) !important;
@@ -90,6 +107,25 @@ a.bg-main:hover,
 * {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-main);
+  color: #083430;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(77, 133, 125, 0.14);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #85c8bf 0%, #4d857d 100%);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #72b6ae 0%, #3d6f68 100%);
 }
 
 /* Focus visible for keyboard accessibility */
@@ -107,12 +143,28 @@ main {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+}
+
+.site-network-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+main > :not(.site-network-layer) {
+  position: relative;
+  z-index: 2;
 }
 
 /* Section spacing - consistent across viewports */
 section {
   padding: 2rem 5%;
   min-height: 100vh;
+  position: relative;
 }
 /* Compact sections: only as tall as content (no full-viewport minimum) */
 section.section-compact {
@@ -199,6 +251,7 @@ section.section-compact {
 }
 .hero-float {
   animation: float 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes bounce-slow {
