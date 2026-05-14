@@ -1,8 +1,9 @@
 const projects = [
   { img: '/assets/smurl.png', title: 'Smurl Web App', link: 'https://github.com/imzaheerk/smurl', demo: 'https://smurl-url.vercel.app/' },
+  { img: '/assets/checknown.png', title: 'Checknown', link: 'https://checknown.vercel.app/', demo: 'https://checknown.vercel.app/' },
   { img: '/assets/jobscan.jpg', title: 'jobScan Web App', link: 'https://github.com/ZaheerK-pro/jobscan', demo: 'https://jobscan.vercel.app/' },
   { img: '/assets/petrolium.jpg', title: 'subPetro', link: 'https://github.com/ZaheerK-pro/petrolium', demo: 'https://sbpetrolium.vercel.app/' },
-  { img: '/assets/portfolio.jpg', title: 'Portfolio', link: 'https://github.com/ZaheerK-pro/rportfolio', demo: 'https://zaheerk.vercel.app/' },
+  // { img: '/assets/portfolio.jpg', title: 'Portfolio', link: 'https://github.com/ZaheerK-pro/rportfolio', demo: 'https://zaheerk.vercel.app/' },
   { img: '/assets/gro-shop.jpg', title: 'Grocery Shop', link: 'https://github.com/ZaheerK-pro/GroceryShop', demo: 'https://igrobasket.vercel.app/' },
   { img: '/assets/cloth-shop.jpg', title: 'Clothing Shop', link: 'https://github.com/ZaheerK-pro/ClothingShop', demo: 'https://auracloths.vercel.app/' },
 ]
@@ -31,9 +32,11 @@ export default function Portfolio() {
                 <div className="w-full rounded-xl bg-black/65 backdrop-blur-sm p-3 sm:p-4 shadow-lg ring-1 ring-white/15">
                   <h3 className="text-white text-xl sm:text-2xl font-bold uppercase tracking-wide mb-3 sm:mb-4 drop-shadow-sm">{p.title}</h3>
                   <div className="flex flex-wrap gap-2 sm:gap-3">
-                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-main hover:bg-main-dark text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50" aria-label={`View ${p.title} source code`}>
-                      <i className="fas fa-code" aria-hidden /><span>Code</span>
-                    </a>
+                    {p.link ? (
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-main hover:bg-main-dark text-white text-[1.3rem] sm:text-[1.4rem] font-medium rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50" aria-label={`View ${p.title} source code`}>
+                        <i className="fas fa-code" aria-hidden /><span>Code</span>
+                      </a>
+                    ) : null}
                     <a href={p.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white text-main-dark hover:bg-white/95 text-[1.3rem] sm:text-[1.4rem] font-semibold rounded-lg border-2 border-white shadow-md transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-black/50" aria-label={`View ${p.title} live demo`}>
                       <i className="fas fa-external-link-alt" aria-hidden /><span>Live</span>
                     </a>
@@ -44,9 +47,11 @@ export default function Portfolio() {
             <div className="p-4 sm:p-5 border-t border-main-dark/20 group-hover:border-main/20 transition-colors">
               <h3 className="text-text-primary text-[1.6rem] sm:text-[1.8rem] font-semibold uppercase tracking-wide">{p.title}</h3>
               <div className="flex gap-3 mt-3">
-                <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-body/80 text-text-muted hover:bg-main hover:text-white transition-all duration-200" aria-label="View source code">
-                  <i className="fab fa-github text-base sm:text-lg" aria-hidden />
-                </a>
+                {p.link ? (
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-body/80 text-text-muted hover:bg-main hover:text-white transition-all duration-200" aria-label="View source code">
+                    <i className="fab fa-github text-base sm:text-lg" aria-hidden />
+                  </a>
+                ) : null}
                 <a href={p.demo} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-body/80 text-text-muted hover:bg-main hover:text-white transition-all duration-200" aria-label="View live demo">
                   <i className="fas fa-external-link-alt" aria-hidden />
                 </a>
