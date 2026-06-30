@@ -1,41 +1,59 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function Cursor() {
-  const [pos, setPos] = useState({ x: 0, y: 0 })
-  const [active, setActive] = useState(false)
+  const dotRef = useRef(null)
+  const ringRef = useRef(null)
+  const pos = useRef({ x: 0, y: 0 })
+  const target = useRef({ x: 0, y: 0 })
+  const active = useRef(false)
 
   useEffect(() => {
-    const move = (e) => setPos({ x: e.pageX, y: e.pageY })
-    window.addEventListener('mousemove', move)
-    return () => window.removeEventListener('mousemove', move)
-  }, [])
+    const onMove = (e) => {
+      target.current = { x: e.clientX, y: e.clientY }
+    }
 
-  useEffect(() => {
-    const links = document.querySelectorAll('a')
-    const enter = () => setActive(true)
-    const leave = () => setActive(false)
-    links.forEach((el) => {
-      el.addEventListener('mouseenter', enter)
-      el.addEventListener('mouseleave', leave)
-    })
-    return () => {
-      links.forEach((el) => {
-        el.removeEventListener('mouseenter', enter)
-        el.removeEventListener('mouseleave', leave)
+    const onEnter = () => { active.current = true }
+    const onLeave = () => { active.current = false }
+
+    let raf
+    const animate = () => {
+      pos.current.x += (target.current.x - pos.current.x) * 0.15
+      pos.current.y += (target.current.y - pos.current.y) * 0.15
+
+      if (dotRef.current && ringRef.current) {
+        const { x, y } = pos.current
+        dotRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`
+        ringRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`
+        dotRef.current.classList.toggle('active', active.current)
+        ringRef.current.classList.toggle('active', active.current)
+      }
+      raf = requestAnimationFrame(animate)
+    }
+
+    window.addEventListener('mousemove', onMove, { passive: true })
+    raf = requestAnimationFrame(animate)
+
+    const bindInteractive = () => {
+      document.querySelectorAll('a, button, input, textarea, [role="button"]').forEach((el) => {
+        el.addEventListener('mouseenter', onEnter)
+        el.addEventListener('mouseleave', onLeave)
       })
+    }
+    bindInteractive()
+    const observer = new MutationObserver(bindInteractive)
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('mousemove', onMove)
+      observer.disconnect()
     }
   }, [])
 
   return (
     <>
-      <div
-        className={`cursor-dot ${active ? 'active' : ''}`}
-        style={{ top: pos.y, left: pos.x }}
-      />
-      <div
-        className={`cursor-ring ${active ? 'active' : ''}`}
-        style={{ top: pos.y, left: pos.x }}
-      />
+      <div ref={dotRef} className="cursor-dot" />
+      <div ref={ringRef} className="cursor-ring" />
     </>
   )
 }
