@@ -12,8 +12,8 @@ export default function Toast({ message, type, visible, onHide }) {
   return (
     <div
       role="alert"
-      className={`fixed top-6 right-6 left-6 sm:left-auto sm:max-w-md min-w-[280px] py-6 px-8 rounded-2xl text-[1.6rem] sm:text-[1.8rem] font-semibold z-[10001] toast-enter shadow-2xl ${
-        type === 'success' ? 'bg-main text-white' : 'bg-red-500 text-white'
+      className={`fixed top-6 right-6 left-6 sm:left-auto sm:max-w-md min-w-[280px] py-6 px-8 rounded-2xl text-[1.6rem] sm:text-[1.8rem] font-semibold z-[10001] toast-enter shadow-2xl glass ${
+        type === 'success' ? 'border-accent text-text-primary' : 'border-red-500 text-red-400'
       }`}
     >
       <span className="flex items-center gap-3">
