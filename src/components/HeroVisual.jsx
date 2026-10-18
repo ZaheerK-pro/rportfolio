@@ -23,7 +23,7 @@ export default function HeroVisual() {
       <div className="hero-profile">
         <div className="hero-profile-ring">
           <div className="hero-profile-avatar">
-            <span>ZK</span>
+            <span>JK</span>
           </div>
         </div>
         <div className="hero-profile-meta">
