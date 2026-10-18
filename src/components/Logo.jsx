@@ -4,7 +4,7 @@ export default function Logo({ className = '' }) {
   const gradId = `logo-flow-${useId().replace(/:/g, '')}`
 
   return (
-    <a href="#home" className={`site-logo ${className}`} aria-label="Zaheer Khan — Home">
+    <a href="#home" className={`site-logo ${className}`} aria-label="Jaheer Khan — Home">
       <svg
         className="site-logo-swoosh"
         viewBox="0 0 120 32"
@@ -30,7 +30,7 @@ export default function Logo({ className = '' }) {
       </svg>
 
       <span className="site-logo-word" aria-hidden>
-        <span className="site-logo-z">Z</span>
+        <span className="site-logo-z">J</span>
         <span className="site-logo-k">K</span>
       </span>
 

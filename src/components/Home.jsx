@@ -26,7 +26,7 @@ export default function Home() {
 
             <h1 className="hero-animate hero-delay-2 font-display font-extrabold text-text-primary leading-[1.05] tracking-tight mb-6" style={{ fontSize: 'clamp(3.2rem, 6.5vw, 5.8rem)' }}>
               Hi, I'm{' '}
-              <span className="gradient-text">Zaheer Khan</span>
+              <span className="gradient-text">Jaheer Khan</span>
             </h1>
 
             <p className="hero-animate hero-delay-3 hero-role text-text-primary mb-5">

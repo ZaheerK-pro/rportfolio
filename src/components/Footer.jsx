@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
           <p className="text-[1.1rem] text-text-muted">
             Made with <span aria-label="love">❤️</span> by{' '}
-            <span className="gradient-text-static font-semibold">Zaheer Khan</span>
+            <span className="gradient-text-static font-semibold">Jaheer Khan</span>
             <span className="mx-1.5 opacity-50" aria-hidden>·</span>
             &copy; {year}
           </p>

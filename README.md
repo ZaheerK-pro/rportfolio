@@ -31,11 +31,11 @@ A simple Personal porfolio web application
 3. API base URL: `http://localhost:3001/api`. Contact form sends messages to `POST /api/messages`.
 
 ## Hosted Version
-You can access the live version of the app [here](https://zaheerk.vercel.app/).
+You can access the live version of the app [here](https://jaheerk.vercel.app/).
 
 ## Author
-Zaheer Khan <br>
-Developer - Zaheer Khan <br>
+Jaheer  Khan <br>
+Developer - Jaheer Khan <br>
 LinkedIn - www.linkedin.com/in/zaheerk1 <br>
 Portfolio - https://zaheerkhan.netlify.app <br>
 Instagram - www.instagram.com/im__zaheerk <br>

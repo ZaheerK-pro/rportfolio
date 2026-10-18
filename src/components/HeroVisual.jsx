@@ -1,6 +1,6 @@
 const codeLines = [
   { indent: 0, parts: [{ t: 'const ', c: 'code' }, { t: 'developer', c: 'name' }, { t: ' = {', c: 'plain' }] },
-  { indent: 1, parts: [{ t: 'name', c: 'key' }, { t: ': ', c: 'plain' }, { t: '"Zaheer Khan"', c: 'str' }, { t: ',', c: 'plain' }] },
+  { indent: 1, parts: [{ t: 'name', c: 'key' }, { t: ': ', c: 'plain' }, { t: '"Jaheer Khan"', c: 'str' }, { t: ',', c: 'plain' }] },
   { indent: 1, parts: [{ t: 'role', c: 'key' }, { t: ': ', c: 'plain' }, { t: '"Full Stack Engineer"', c: 'str' }, { t: ',', c: 'plain' }] },
   { indent: 1, parts: [{ t: 'stack', c: 'key' }, { t: ': [', c: 'plain' }, { t: '"React"', c: 'str' }, { t: ', ', c: 'plain' }, { t: '"Node.js"', c: 'str' }, { t: '],', c: 'plain' }] },
   { indent: 1, parts: [{ t: 'openToWork', c: 'key' }, { t: ': ', c: 'plain' }, { t: 'true', c: 'bool' }] },
@@ -27,7 +27,7 @@ export default function HeroVisual() {
           </div>
         </div>
         <div className="hero-profile-meta">
-          <p className="font-display font-bold text-[1.7rem] text-text-primary">Zaheer Khan</p>
+          <p className="font-display font-bold text-[1.7rem] text-text-primary">Jaheer Khan</p>
           <p className="text-[1.15rem] text-accent font-medium">Full Stack Developer</p>
           <p className="text-[1.1rem] text-text-muted mt-1 flex items-center gap-2">
             <i className="fas fa-map-marker-alt text-[0.9rem]" /> India
